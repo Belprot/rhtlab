@@ -50,7 +50,7 @@ To do this :
  - Click on `Publish release` 
  - Send the name of the release.
 
-# Clone Repository$
+# Clone Repository
 To work locally on your computer, clone your fork repository.
 - **Clone the project repository:**
   
@@ -64,10 +64,49 @@ To work locally on your computer, clone your fork repository.
 
 if we work with mamba, follow [Install Dependencies](#install-dependencies), to install all the good package.
 # Install Dependencies
-
-- **Install packages from `environment.yml` into the `(base)` environnement:**
+Three options : 
+- WSL with python3.12-venv
+- WSL with mamba/conda (if you have followed the tuto [INSTALL.md](INSTALL.md))
+- Windows 10/11 with native venv module
+## On WSL 
+### With python3.12-venv
+Use virtual environment with the module python3.12-venv
+- If the module isn't installed, install with :
+  ```bash
+  sudo apt install python3.12-venv
+  ```
+- Then create the virtual environment, for this :
+  - move to the project file
+  - Confirme that the file .gitingore exit at the root of the project
+- Create a virtual environment with the name `.venv`
+```bash
+python3 -m venv .venv
+```
+- Activate it
+```bash
+source .venv/bin/activate
+```
+- Install the depedencies with the requirement file :
+  ```bash
+  pip install -r requirements_linux.txt
+  ```
+### With conda package management
+- Install packages from `environment.yml` into the `(base)` environnement :
   ```bash
   cd rhtlab
   mamba env update -n base --file environment.yml
+  ```
+## On windows 11
+- Create a virtual environnement for the project, at the root of the project :
+  ```bash
+  python -m venv .venv
+  ```
+- Activate it
+  ```bash
+  .venv\Scripts\activate
+  ```
+- Then install the requirement file
+  ```bash
+  pip install -r requirements_windows.txt
   ```
 ---
